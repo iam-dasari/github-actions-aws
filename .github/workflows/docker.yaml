@@ -1,0 +1,9 @@
+name: Docker Build and Push to DockerHub
+on: push
+
+jobs:
+  docker-build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker build
+        run: echo "docker"
