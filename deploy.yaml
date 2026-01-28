@@ -27,7 +27,8 @@ metadata:
 spec:
   selector:
     app: flask-app
-  type: LoadBalancer # Use LoadBalancer for local kind cluster access
+  type: NodePort
   ports:
   - port: 80
     targetPort: 5000
+    nodePort: 30007
