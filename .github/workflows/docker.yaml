@@ -46,3 +46,4 @@ jobs:
           kubectl apply -f deploy.yaml
           kubectl get svc
           kubectl get pods
+          kubectl port-forward svc/flask-app-service 8080:80
