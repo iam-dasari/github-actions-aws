@@ -42,4 +42,6 @@ jobs:
           push: true
           tags: dasaridevops/flask-app:v1
       - name: Run deploy.yaml
-        run: kubectl apply -f deploy.yaml
+        run: |
+          kubectl apply -f deploy.yaml
+          kubectl get svc
