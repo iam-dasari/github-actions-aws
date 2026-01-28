@@ -22,7 +22,7 @@ jobs:
 
       - name: Verify cluster
         run: |
-          kubectl cluster-info --context kind-ci-cluster
+          kubectl cluster-info --context kind-kind-ci-cluster
           kubectl get nodes
 
       - name: Get pods (all namespaces)
