@@ -41,10 +41,18 @@ jobs:
           file: Dockerfile
           push: true
           tags: dasaridevops/flask-app:v1
-      - name: Run deploy.yaml
+
+      - name: Deploy application to Kind
         run: |
           kubectl apply -f deploy.yaml
-          kubectl get svc
           kubectl get pods
-      - name: port-forward
-        run: kubectl port-forward svc/flask-app-service 8080:80
+          kubectl get svc
+
+      - name: Wait for pods to be ready
+        run: sleep 60
+        shell: bash
+
+      - name: Port forward service (background)
+        run: |
+          kubectl port-forward svc/flask-app-service 8080:80 &
+          sleep 30
